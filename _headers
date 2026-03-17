@@ -1,0 +1,23 @@
+# _headers – Estancia Mar y Montaña
+# Cloudflare Pages aplica estas cabeceras HTTP automáticamente al desplegar.
+# Documentación: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  # Seguridad básica
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+  # Cache por defecto para HTML (sin caché agresiva; el contenido puede cambiar)
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Assets estáticos: cache larga (1 año) — los nombres de archivo no cambian
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -1,0 +1,11 @@
+# _redirects – Estancia Mar y Montaña
+# Cloudflare Pages aplica estas redirecciones a nivel de servidor (sin JS).
+# Documentación: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Redirigir la raíz a /es/ como idioma por defecto
+# (el index.html raíz ya lo hace via JS; esto cubre el caso sin JS)
+/  /es/  302
+
+# Cuando se publique /en/ o /fr/, añadir aquí si se quiere forzar algún alias:
+# /english  /en/  301
+# /français /fr/  301

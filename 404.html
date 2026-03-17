@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página no encontrada – Estancia Mar y Montaña</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg:         #faf9f7;
+      --color-text:       #2a2825;
+      --color-text-muted: #7a7469;
+      --color-border:     #e8e4de;
+      --color-ocean:      #1e4d6b;
+      --color-sand:       #e3b632;
+      --font-display:     'Cormorant Garamond', Georgia, serif;
+      --font-body:        'DM Sans', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      opacity: .6;
+    }
+
+    .code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 20vw, 8rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--color-ocean);
+      opacity: .15;
+      letter-spacing: -.02em;
+      margin-bottom: .5rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 400;
+      margin-bottom: .75rem;
+      line-height: 1.2;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--color-ocean);
+    }
+
+    p {
+      font-size: .95rem;
+      color: var(--color-text-muted);
+      max-width: 36ch;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .75rem 2rem;
+      background: var(--color-ocean);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 2px;
+      font-size: .9rem;
+      font-weight: 500;
+      letter-spacing: .03em;
+      transition: background .2s;
+    }
+
+    .btn:hover { background: #2f6b8f; }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-sand);
+      margin: 2rem auto;
+      opacity: .6;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: .85rem;
+      color: var(--color-text-muted);
+      letter-spacing: .05em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="icon">🌊</div>
+  <div class="code">404</div>
+
+  <h1>Página no <em>encontrada</em></h1>
+  <p>Parece que esta página se la llevó el Mediterráneo. Vuelve al inicio y sigue disfrutando de Jávea.</p>
+
+  <a href="/es/" class="btn">Volver al inicio</a>
+
+  <div class="divider"></div>
+  <span class="brand">Estancia Mar y Montaña · Puerto de Jávea</span>
+
+</body>
+</html>
