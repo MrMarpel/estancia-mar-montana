@@ -29,6 +29,8 @@
   <!-- <link rel="alternate" hreflang="en" href="https://www.estanciamarymontana.com/en/" /> -->
   <!-- <link rel="alternate" hreflang="fr" href="https://www.estanciamarymontana.com/fr/" /> -->
   <link rel="alternate" hreflang="x-default" href="https://www.estanciamarymontana.com/es/" />
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
 
   <!-- GEO Meta Tags -->
   <meta name="geo.region" content="ES-VC" />
@@ -53,13 +55,17 @@
   <meta name="twitter:description" content="Apartamento mediterráneo de 112 m² a 4 min de la playa. Vistas al Montgó, 2 terrazas privadas." />
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" />
 
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
+<!-- ============================================================
+     BLOQUE SCHEMA LD+JSON COMPLETO
+     Sustituye el bloque <script type="application/ld+json"> del <head>
+============================================================ -->
+<script type="application/ld+json">
+[
   {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Estancia Mar y Montaña",
-    "description": "Apartamento turístico de 112 m² en el puerto de Jávea con 2 habitaciones, 2 terrazas privadas con vistas al Montgó y a 4 minutos de la Playa de la Grava.",
+    "description": "Apartamento turístico de 112 m² en el puerto de Jávea con 2 habitaciones, 2 terrazas privadas con vistas al Montgó, a 4 minutos a pie de la Playa de la Grava. Aire acondicionado, WiFi gratuito, parking gratuito y admite mascotas.",
     "url": "https://www.estanciamarymontana.com/",
     "telephone": "+34697359158",
     "address": {
@@ -75,28 +81,182 @@
       "latitude": 38.7876,
       "longitude": 0.1643
     },
-    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    "hasMap": "https://maps.google.com/?q=38.7876,0.1643",
+    "image": [
+      "https://www.estanciamarymontana.com/img/hero-image.webp",
+      "https://www.estanciamarymontana.com/img/Salon-comedor.webp",
+      "https://www.estanciamarymontana.com/img/Terraza-vistas.webp",
+      "https://www.estanciamarymontana.com/img/habitacion-principal.webp"
+    ],
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Tarjeta de crédito, transferencia bancaria",
+    "checkinTime": "12:00",
+    "checkoutTime": "12:00",
     "amenityFeature": [
       {"@type": "LocationFeatureSpecification", "name": "WiFi gratuito", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Aire acondicionado", "value": true},
       {"@type": "LocationFeatureSpecification", "name": "Parking gratuito", "value": true},
-      {"@type": "LocationFeatureSpecification", "name": "Terraza", "value": true},
-      {"@type": "LocationFeatureSpecification", "name": "Admite mascotas", "value": true}
+      {"@type": "LocationFeatureSpecification", "name": "Terraza privada", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Admite mascotas", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Lavavajillas", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Lavadora", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Cocina equipada", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Televisión", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Accesible en silla de ruedas", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Cuna disponible", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Ropa de cama incluida", "value": true}
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "9.6",
-      "reviewCount": "7",
-      "bestRating": "10"
+      "ratingValue": "4.8",
+      "reviewCount": "9",
+      "bestRating": "5",
+      "worstRating": "1"
     },
-    "touristType": ["Family", "Couple"],
+    "review": [
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Adelaida"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Estupendo apartamento en el Puerto de Javea. Xusa está siempre pendiente. El apartamento es muy agradable con unas vistas preciosas al Montgo. Es muy confortable y está muy cuidado. Supermercados muy cerca y todo el puerto con sus restaurantes, la playa la Grava etc para ir andando. Es un sitio muy agradable y estratégico al que volver.",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Karen"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Pasamos un fin de semana encantador en el apartamento de Xusa. El aparcamiento era fácil, muchos restaurantes, bares y tiendas a poca distancia a pie. Cualquier consulta fue respondida de inmediato. Sin duda nos gustaría volver pronto.",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Lisette"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Excelente apartamento, se ve aún más bonito que en las fotos. Todo incluido, desde toallas hasta champú y detergentes. Xusa, el anfitrión, es muy amable y nos dio consejos para un restaurante delicioso. Disfrutamos del apartamento y de los alrededores durante 15 días. Ciertamente sujeto a repetición.",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Deanna"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Xusa fue muy atenta, amable y complaciente de principio a fin. Su marido nos saludó calurosamente a nuestra llegada y nos familiarizó con el apartamento dándonos excelentes sugerencias de restaurantes. Su casa estaba muy limpia y abastecida con todo y más de lo que podrías necesitar. Somos una familia de 4 y estuvimos muy a gusto. Esperamos volver a alojarnos con Xusa.",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Marcel"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Maravilloso uso de este apartamento. Cumple con todo. A poca distancia de la playa y del casco antiguo.",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "Review",
+        "author": {"@type": "Person", "name": "Ingrid"},
+        "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+        "reviewBody": "Xusa ha sido muy considerada hasta el último minuto. Preparó productos desmaquillantes, un kit con tiritas, gasas, etc., y también tuvo el detalle de tener agua fresca y un cartón de leche. Sin duda, una experiencia 100% recomendable.",
+        "inLanguage": "es"
+      }
+    ],
+    "touristType": ["Family", "Couple", "Travelers with pets"],
     "numberOfRooms": 2,
     "floorSize": {"@type": "QuantitativeValue", "value": 112, "unitCode": "MTK"},
     "petsAllowed": true,
     "identifier": "VT-510619-A",
-    "inLanguage": ["es", "en", "fr"]
+    "inLanguage": ["es", "en", "fr"],
+    "sameAs": [
+      "https://www.airbnb.es/rooms/1462335158547780452"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿A qué distancia está la playa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Playa de la Grava está a solo 350 metros, unos 4-5 minutos andando. La Playa de la Montañar se encuentra a 1,2 km (12-15 min a pie) y la Playa del Arenal a 2,8 km (5-7 min en coche)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El apartamento tiene parking gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, hay aparcamiento público gratuito en las inmediaciones del apartamento. Además, hay un punto de carga para vehículos eléctricos a 100 metros."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Se admiten mascotas en el apartamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, se admiten mascotas pequeñas bajo petición previa y con respeto al espacio. Puede haber un suplemento adicional. Consúltalo al reservar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántas personas caben en el apartamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El apartamento tiene capacidad para hasta 4 personas. Cuenta con 2 dormitorios: una habitación principal con cama de matrimonio y una segunda habitación con dos camas individuales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta el apartamento por noche?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Las tarifas varían según temporada: desde 90 €/noche en temporada baja (octubre a marzo), desde 130 €/noche en temporada media (abril a junio y septiembre), y desde 200 €/noche en temporada alta (julio y agosto). Los precios incluyen impuestos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es el horario de check-in y check-out?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El check-in es de 12:00 a 18:00 horas. El check-out es hasta las 12:00 horas. Es importante avisar con antelación de la hora de llegada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El apartamento tiene aire acondicionado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, el apartamento dispone de aire acondicionado frío/calor en todas las estancias, además de ventilador de techo en la habitación principal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se puede reservar el apartamento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Puedes reservar directamente a través de Airbnb (https://www.airbnb.es/rooms/1462335158547780452) o contactar con la anfitriona Xusa por WhatsApp en el +34 697 359 158 para reserva directa y respuesta inmediata."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué hay cerca del apartamento en Jávea?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El apartamento está en el Puerto de Jávea, a 50 metros de restaurantes como La Cocina y Sabor a Mi, con supermercados y farmacias a poca distancia. La Reserva Natural del Montgó está a 250 metros. El casco histórico de Jávea y el campo de golf La Sella están a pocos kilómetros."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Es apto para familias con niños?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, el apartamento es apto para niños de cualquier edad. Se puede solicitar una cuna gratuita para bebés de 0 a 3 años. El apartamento también es accesible para personas en silla de ruedas."
+        }
+      }
+    ]
   }
-  </script>
+]
+</script>
+
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -127,7 +287,9 @@
           <li><a href="#ubicacion">Ubicación</a></li>
           <li><a href="#precios">Precios</a></li>
           <li><a href="#resenas">Reseñas</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacto" class="nav-cta">Reservar</a></li>
+
         </ul>
       </nav>
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
@@ -142,7 +304,9 @@
         <li><a href="#ubicacion">Ubicación</a></li>
         <li><a href="#precios">Precios</a></li>
         <li><a href="#resenas">Reseñas</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contacto">Reservar</a></li>
+        
       </ul>
     </nav>
   </header>
@@ -158,6 +322,8 @@
           src="/img/hero-image.webp"
           alt="Terraza con vistas al mar mediterráneo en Jávea"
           class="hero-img"
+          width="1920"
+          height="1080"
           loading="eager"
           fetchpriority="high"
         />
@@ -246,7 +412,7 @@
         <div class="section-header reveal-up">
           <span class="section-label"><i class="fa-solid fa-house"></i> El apartamento</span>
           <h2>Un rincón de Jávea<br /><em>preparado con cariño</em></h2>
-          <p class="section-intro">Luminoso, moderno y completamente equipado para que solo tengas que preocuparte de disfrutar del Mediterráneo.</p>
+          <p class="section-intro">Moderno y completamente equipado para que solo tengas que preocuparte de disfrutar del Mediterráneo.</p>
         </div>
 
         <div class="feature-grid">
@@ -258,7 +424,7 @@
           <div class="feature-card reveal-up delay-2">
             <i class="fa-solid fa-expand"></i>
             <h3>112 m²</h3>
-            <p>Amplio salón-comedor luminoso, cocina totalmente equipada y dos baños completos con artículos de aseo gratuitos.</p>
+            <p>Amplio salón-comedor, cocina totalmente equipada y dos baños completos con artículos de aseo gratuitos.</p>
           </div>
           <div class="feature-card reveal-up delay-3">
             <i class="fa-solid fa-leaf"></i>
@@ -740,6 +906,142 @@ Sin duda, una experiencia 100 % recomendable."</p>
         </div>
       </div>
     </section>
+
+
+<!-- ============================================================
+     BLOQUE 2 · SECCIÓN FAQ VISIBLE EN EL HTML
+     Inserta justo antes de: <section class="section contacto" id="contacto">
+============================================================ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <span class="section-label"><i class="fa-solid fa-circle-question"></i> Preguntas frecuentes</span>
+      <h2>Todo lo que necesitas<br /><em>saber antes de reservar</em></h2>
+    </div>
+
+    <div class="faq-grid reveal-up">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-water"></i>
+          <span>¿A qué distancia está la playa?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>La <strong>Playa de la Grava</strong> está a solo 350 metros — unos 4-5 minutos andando. La Playa de la Montañar se encuentra a 1,2 km (12-15 min a pie) y la Playa del Arenal a 2,8 km (5-7 min en coche).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-square-parking"></i>
+          <span>¿Hay parking gratuito?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Sí, hay aparcamiento público <strong>gratuito</strong> en las inmediaciones. Además, hay un punto de carga para <strong>vehículos eléctricos</strong> a 100 metros.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-paw"></i>
+          <span>¿Se admiten mascotas?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Sí, se admiten <strong>mascotas pequeñas</strong> bajo petición previa y con respeto al espacio. Puede aplicarse un pequeño suplemento. Consúltalo al reservar.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-users"></i>
+          <span>¿Cuántas personas caben?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>El apartamento tiene capacidad para hasta <strong>4 personas</strong>: habitación principal con cama de matrimonio y segunda habitación con dos camas individuales.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-tag"></i>
+          <span>¿Cuánto cuesta por noche?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Las tarifas varían por temporada:</p>
+          <ul>
+            <li><strong>Temporada baja</strong> (oct–mar): desde 90 €/noche</li>
+            <li><strong>Temporada media</strong> (abr–jun, sep): desde 130 €/noche</li>
+            <li><strong>Temporada alta</strong> (jul–ago): desde 200 €/noche</li>
+          </ul>
+          <p>Todos los precios incluyen impuestos.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-regular fa-clock"></i>
+          <span>¿Cuál es el horario de entrada y salida?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p><strong>Check-in:</strong> de 12:00 a 18:00 h — avisa con antelación de tu hora de llegada.<br />
+          <strong>Check-out:</strong> hasta las 12:00 h.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-wind"></i>
+          <span>¿Tiene aire acondicionado?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Sí, hay <strong>aire acondicionado frío/calor en todas las estancias</strong>, más ventilador de techo en la habitación principal.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-baby"></i>
+          <span>¿Es apto para familias con niños?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Totalmente. El apartamento es apto para <strong>niños de cualquier edad</strong>. Se puede solicitar una <strong>cuna gratuita</strong> para bebés de 0 a 3 años. También es accesible para personas en silla de ruedas.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>¿Qué hay cerca del apartamento?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Restaurantes a 50 metros, supermercados y farmacias a poca distancia, la <strong>Reserva Natural del Montgó</strong> a 250 m y el casco histórico de Jávea a pocos kilómetros. El puerto concentra todo lo necesario para unas vacaciones sin coche.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>¿Cómo puedo reservar?</span>
+          <i class="fa-solid fa-chevron-down faq-chevron"></i>
+        </summary>
+        <div class="faq-answer">
+          <p>Puedes reservar por <strong>Airbnb</strong> con pago seguro y garantía, o contactar directamente con Xusa por <strong>WhatsApp</strong> (+34 697 359 158) para respuesta inmediata y gestión directa.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- ============================================================
          CONTACTO / RESERVA
