@@ -1,0 +1,11 @@
+# robots.txt – Estancia Mar y Montaña
+# https://www.estanciamarymontana.com/
+
+User-agent: *
+Allow: /
+
+# No indexar el index raíz (solo redirige, sin contenido)
+Disallow: /index.html
+
+# Sitemap
+Sitemap: https://www.estanciamarymontana.com/sitemap.xml

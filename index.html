@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Estancia Mar y Montaña – Apartamento en Jávea</title>
+  <meta name="description" content="Apartamento turístico en el Puerto de Jávea. 2 habitaciones · 2 terrazas · Vistas al Montgó · 4 min de la playa." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!--
+    ═══════════════════════════════════════════════════════════
+    INDEX RAÍZ – Redirección por idioma del navegador
+    ─────────────────────────────────────────────────────────
+    Este archivo NO tiene contenido visible.
+    Su única función es detectar el idioma del navegador
+    y redirigir al directorio de idioma correcto.
+
+    PARA AÑADIR UN NUEVO IDIOMA:
+      1. Duplica la carpeta de idioma:  cp -r es/ en/
+      2. Traduce todo el contenido de   en/index.html
+      3. En el bloque LANG_MAP de abajo, añade la entrada:
+            'en': 'en',
+         y también variantes regionales si se necesitan:
+            'en-US': 'en', 'en-GB': 'en',
+      4. Descomenta la línea <link rel="alternate hreflang>
+         correspondiente en este archivo Y en todos los
+         index.html de las demás carpetas de idioma.
+      5. Actualiza x-default al idioma más relevante
+         si el español deja de ser el principal.
+    ═══════════════════════════════════════════════════════════
+  -->
+
+  <!-- hreflang raíz -->
+  <link rel="alternate" hreflang="es"        href="https://www.estanciamarymontana.com/es/" />
+  <!-- <link rel="alternate" hreflang="en"     href="https://www.estanciamarymontana.com/en/" /> -->
+  <!-- <link rel="alternate" hreflang="fr"     href="https://www.estanciamarymontana.com/fr/" /> -->
+  <link rel="alternate" hreflang="x-default" href="https://www.estanciamarymontana.com/es/" />
+
+  <!-- Fallback meta-refresh si JS está desactivado -->
+  <meta http-equiv="refresh" content="0;url=es/" />
+
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, serif;
+      background: #faf9f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #7a7469;
+      font-size: .9rem;
+    }
+    .loader { text-align: center; opacity: 0; animation: fadeIn .4s .2s forwards; }
+    .loader-icon { font-size: 2rem; margin-bottom: .75rem; }
+    @keyframes fadeIn { to { opacity: 1; } }
+  </style>
+</head>
+<body>
+  <div class="loader" aria-live="polite">
+    <div class="loader-icon">🏖️</div>
+    <p>Redirigiendo…</p>
+  </div>
+
+  <script>
+    (function () {
+      /*
+       * LANG_MAP
+       * Clave  → código de idioma del navegador (navigator.language)
+       * Valor  → nombre de la carpeta en este proyecto
+       *
+       * Añade entradas aquí al crear nuevas carpetas de idioma.
+       */
+      var LANG_MAP = {
+        'es':    'es',
+        'es-ES': 'es',
+        'es-MX': 'es',
+        'es-AR': 'es',
+        'es-CO': 'es',
+        'es-CL': 'es',
+        /* 'en':    'en',   ← descomentar al crear carpeta en/ */
+        /* 'en-US': 'en',   */
+        /* 'en-GB': 'en',   */
+        /* 'fr':    'fr',   ← descomentar al crear carpeta fr/ */
+        /* 'fr-FR': 'fr',   */
+        /* 'fr-BE': 'fr',   */
+      };
+
+      /* Idioma por defecto si el navegador no coincide con ninguna entrada */
+      var DEFAULT_LANG = 'es';
+
+      /* ── Detección ── */
+      var langs = (navigator.languages && navigator.languages.length)
+        ? Array.from(navigator.languages)
+        : (navigator.language ? [navigator.language] : []);
+
+      var target = DEFAULT_LANG;
+      for (var i = 0; i < langs.length; i++) {
+        var lang = langs[i];
+        if (LANG_MAP[lang])             { target = LANG_MAP[lang]; break; }
+        var prefix = lang.split('-')[0];
+        if (LANG_MAP[prefix])           { target = LANG_MAP[prefix]; break; }
+      }
+
+      /* Redirigir preservando query string y hash */
+      window.location.replace(target + '/' + window.location.search + window.location.hash);
+    })();
+  </script>
+</body>
+</html>
