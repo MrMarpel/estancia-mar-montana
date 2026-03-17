@@ -1,10 +1,18 @@
 # robots.txt – Estancia Mar y Montaña
 # https://www.estanciamarymontana.com/
+#
+# NOTAS DE MANTENIMIENTO:
+# - /index.html es un redirect 301 → /es/ sin contenido propio.
+#   Se bloquea para evitar que Google indexe la redirección como página.
+# - Si en algún momento /index.html pasa a servir contenido real,
+#   elimina la línea Disallow correspondiente.
+# - Las carpetas /css/, /js/ e /img/ deben ser rastreables para que
+#   Google pueda renderizar la página correctamente (no se bloquean).
 
 User-agent: *
 Allow: /
 
-# No indexar el index raíz (solo redirige, sin contenido)
+# Bloquear el redirect raíz (no es contenido indexable)
 Disallow: /index.html
 
 # Sitemap

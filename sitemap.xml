@@ -4,29 +4,30 @@
   SITEMAP – Estancia Mar y Montaña
   ─────────────────────────────────────────────────────────
   PARA AÑADIR UN NUEVO IDIOMA (p.ej. inglés):
-    1. Dentro del bloque <url> existente, añade:
-         <xhtml:link rel="alternate" hreflang="en"
-                     href="https://www.estanciamarymontana.com/en/"/>
-    2. Crea un segundo bloque <url> para la nueva URL:
-         <url>
-           <loc>https://www.estanciamarymontana.com/en/</loc>
-           <xhtml:link rel="alternate" hreflang="es"
-                       href="https://www.estanciamarymontana.com/es/"/>
-           <xhtml:link rel="alternate" hreflang="en"
-                       href="https://www.estanciamarymontana.com/en/"/>
-           <xhtml:link rel="alternate" hreflang="x-default"
-                       href="https://www.estanciamarymontana.com/es/"/>
-           <lastmod>YYYY-MM-DD</lastmod>
-           <changefreq>monthly</changefreq>
-           <priority>0.9</priority>
-         </url>
-    3. Actualiza <lastmod> en todos los bloques afectados.
+    1. Descomenta el bloque <url> de /en/ al final del archivo.
+    2. En el bloque de /es/, descomenta la línea hreflang="en".
+    3. En el bloque de /es/, cambia x-default a /en/ si quieres
+       que la audiencia internacional aterrice en inglés.
+    4. Actualiza <lastmod> en todos los bloques afectados.
   ═══════════════════════════════════════════════════════════
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Versión española -->
+  <!--
+    URL raíz — sirve únicamente redirect 301 → /es/
+    Incluida para que Google entienda la estructura y no la trate
+    como contenido duplicado sin señal.
+  -->
+  <url>
+    <loc>https://www.estanciamarymontana.com/</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.estanciamarymontana.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.estanciamarymontana.com/es/"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Versión española — página principal de contenido -->
   <url>
     <loc>https://www.estanciamarymontana.com/es/</loc>
     <xhtml:link rel="alternate" hreflang="es"        href="https://www.estanciamarymontana.com/es/"/>
@@ -39,11 +40,30 @@
   </url>
 
   <!--
+  INGLÉS — descomentar cuando /en/index.html esté publicado
+  Recuerda también descomentar los hreflang="en" en el bloque /es/ de arriba
+  y cambiar x-default a /en/ si quieres priorizar la audiencia internacional.
+
   <url>
     <loc>https://www.estanciamarymontana.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="es"        href="https://www.estanciamarymontana.com/es/"/>
     <xhtml:link rel="alternate" hreflang="en"        href="https://www.estanciamarymontana.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.estanciamarymontana.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.estanciamarymontana.com/en/"/>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  -->
+
+  <!--
+  FRANCÉS — descomentar cuando /fr/index.html esté publicado
+
+  <url>
+    <loc>https://www.estanciamarymontana.com/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.estanciamarymontana.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.estanciamarymontana.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://www.estanciamarymontana.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.estanciamarymontana.com/en/"/>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
