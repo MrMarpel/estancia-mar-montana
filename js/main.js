@@ -231,4 +231,23 @@
     if (e.key === 'Escape' && modal && !modal.hidden) closeModal();
   });
 
+  /* ── Booking bar → Airbnb con fechas ── */
+  const bookingCta = document.getElementById('booking-cta');
+  if (bookingCta && bookIn && bookOut) {
+    bookingCta.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const checkIn  = bookIn.value;
+      const checkOut = bookOut.value;
+      const adults   = document.getElementById('booking-viajeros').value;
+
+      const url = new URL('https://www.airbnb.es/rooms/1462335158547780452');
+      if (checkIn)  url.searchParams.set('check_in',  checkIn);
+      if (checkOut) url.searchParams.set('check_out', checkOut);
+      url.searchParams.set('adults', adults);
+
+      window.open(url.toString(), '_blank', 'noopener,noreferrer');
+    });
+  }
+
 })();
