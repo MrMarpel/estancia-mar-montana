@@ -250,4 +250,96 @@
     });
   }
 
+  /* ── Language switcher ── */
+  (function () {
+    /*
+     * ANCHOR MAP
+     * Clave: nombre semántico de la sección (invariante entre idiomas)
+     * Valor: el id real del <section> en cada versión de idioma
+     *
+     * AHORA todos los id son iguales en los tres idiomas.
+     * Cuando actualices los id para SEO, edita solo este mapa:
+     *   Ejemplo → en: { precios: 'rates', galeria: 'gallery', ... }
+     */
+    var ANCHOR_MAP = {
+      es: { inicio:'inicio', apartamento:'apartamento', galeria:'galeria', ubicacion:'ubicacion', precios:'precios', resenas:'resenas', faq:'faq', contacto:'contacto', normas:'normas' },
+      en: { inicio:'inicio', apartamento:'apartamento', galeria:'galeria', ubicacion:'ubicacion', precios:'precios', resenas:'resenas', faq:'faq', contacto:'contacto', normas:'normas' },
+      fr: { inicio:'inicio', apartamento:'apartamento', galeria:'galeria', ubicacion:'ubicacion', precios:'precios', resenas:'resenas', faq:'faq', contacto:'contacto', normas:'normas' }
+    };
+
+    /* Detectar idioma actual desde la URL: /es/, /en/, /fr/ */
+    function getCurrentLang() {
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      return parts[0] || 'es';
+    }
+
+    /* Traducir hash al idioma destino */
+    function translateHash(hash, fromLang, toLang) {
+      if (!hash) return '';
+      var anchor = hash.replace('#', '');
+      var fromMap = ANCHOR_MAP[fromLang];
+      if (!fromMap) return hash;
+      // Encontrar la clave semántica cuyo valor coincide con el anchor actual
+      var key = Object.keys(fromMap).find(function (k) { return fromMap[k] === anchor; });
+      if (!key) return hash;
+      var toMap = ANCHOR_MAP[toLang];
+      return toMap && toMap[key] ? '#' + toMap[key] : hash;
+    }
+
+    /* Construir URL destino preservando hash */
+    function buildUrl(targetLang) {
+      var currentLang = getCurrentLang();
+      var hash        = window.location.hash;
+      var newHash     = translateHash(hash, currentLang, targetLang);
+      var newPath     = window.location.pathname.replace(
+        '/' + currentLang + '/',
+        '/' + targetLang + '/'
+      );
+      return newPath + window.location.search + newHash;
+    }
+
+    /* Manejador de clic compartido */
+    function handleLangClick(e) {
+      e.preventDefault();
+      var targetLang  = this.getAttribute('data-lang');
+      var currentLang = getCurrentLang();
+      if (targetLang === currentLang) return;
+      window.location.href = buildUrl(targetLang);
+    }
+
+    /* ── Dropdown de escritorio ── */
+    var switcher = document.getElementById('lang-switcher');
+    if (switcher) {
+      var btn      = switcher.querySelector('.lang-btn');
+      var dropdown = switcher.querySelector('.lang-dropdown');
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = switcher.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+
+      document.addEventListener('click', function () {
+        switcher.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          switcher.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      dropdown.querySelectorAll('.lang-option').forEach(function (link) {
+        link.addEventListener('click', handleLangClick.bind(link));
+      });
+    }
+
+    /* ── Links de idioma en menú móvil ── */
+    document.querySelectorAll('.mobile-lang [data-lang]').forEach(function (link) {
+      link.addEventListener('click', handleLangClick.bind(link));
+    });
+  })();
+
 })();
