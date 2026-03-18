@@ -12,15 +12,27 @@
 
   /* ── Header scroll behaviour ── */
   const header = document.getElementById('site-header');
+
+  // FIX REFLOW: Read scrollY once outside the handler to avoid
+  // forced reflow on init. Use requestAnimationFrame to batch
+  // style writes and never mix read+write in the same frame.
+  let lastScrolled = null;
   function onScroll() {
-    if (window.scrollY > 60) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+    requestAnimationFrame(() => {
+      const scrolled = window.scrollY > 60;
+      if (scrolled === lastScrolled) return; // skip if state unchanged
+      lastScrolled = scrolled;
+      if (scrolled) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  // Init: read scrollY once, write class once — no reflow loop
+  lastScrolled = window.scrollY > 60;
+  if (lastScrolled) header.classList.add('scrolled');
 
   /* ── Mobile menu toggle ── */
   const menuBtn   = document.querySelector('.menu-toggle');
@@ -51,11 +63,14 @@
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + entry.target.id) {
-              link.classList.add('active');
-            }
+          // FIX REFLOW: batch all classList changes in one rAF
+          requestAnimationFrame(() => {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + entry.target.id) {
+                link.classList.add('active');
+              }
+            });
           });
         }
       });
@@ -70,7 +85,10 @@
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          // FIX REFLOW: write class inside rAF to avoid layout thrashing
+          requestAnimationFrame(() => {
+            entry.target.classList.add('visible');
+          });
           revealObserver.unobserve(entry.target);
         }
       });
@@ -252,41 +270,28 @@
 
   /* ── Language switcher ── */
   (function () {
-    /*
-     * ANCHOR MAP
-     * Clave: nombre semántico de la sección (invariante entre idiomas)
-     * Valor: el id real del <section> en cada versión de idioma
-     *
-     * AHORA todos los id son iguales en los tres idiomas.
-     * Cuando actualices los id para SEO, edita solo este mapa:
-     *   Ejemplo → en: { precios: 'rates', galeria: 'gallery', ... }
-     */
     var ANCHOR_MAP = {
       es: { inicio:'inicio', apartamento:'apartamento', galeria:'galeria', ubicacion:'ubicacion', precios:'precios', resenas:'resenas', faq:'faq', contacto:'contacto', normas:'normas' },
       en: { inicio:'inicio', apartamento:'apartamento', galeria:'galeria', ubicacion:'ubicacion', precios:'precios', resenas:'resenas', faq:'faq', contacto:'contacto', normas:'normas' },
       fr: { inicio:'inicio', apartamento:'apartamento', galeria:'galeria', ubicacion:'ubicacion', precios:'precios', resenas:'resenas', faq:'faq', contacto:'contacto', normas:'normas' }
     };
 
-    /* Detectar idioma actual desde la URL: /es/, /en/, /fr/ */
     function getCurrentLang() {
       var parts = window.location.pathname.split('/').filter(Boolean);
       return parts[0] || 'es';
     }
 
-    /* Traducir hash al idioma destino */
     function translateHash(hash, fromLang, toLang) {
       if (!hash) return '';
       var anchor = hash.replace('#', '');
       var fromMap = ANCHOR_MAP[fromLang];
       if (!fromMap) return hash;
-      // Encontrar la clave semántica cuyo valor coincide con el anchor actual
       var key = Object.keys(fromMap).find(function (k) { return fromMap[k] === anchor; });
       if (!key) return hash;
       var toMap = ANCHOR_MAP[toLang];
       return toMap && toMap[key] ? '#' + toMap[key] : hash;
     }
 
-    /* Construir URL destino preservando hash */
     function buildUrl(targetLang) {
       var currentLang = getCurrentLang();
       var hash        = window.location.hash;
@@ -298,7 +303,6 @@
       return newPath + window.location.search + newHash;
     }
 
-    /* Manejador de clic compartido */
     function handleLangClick(e) {
       e.preventDefault();
       var targetLang  = this.getAttribute('data-lang');
@@ -307,7 +311,6 @@
       window.location.href = buildUrl(targetLang);
     }
 
-    /* ── Dropdown de escritorio ── */
     var switcher = document.getElementById('lang-switcher');
     if (switcher) {
       var btn      = switcher.querySelector('.lang-btn');
@@ -336,7 +339,6 @@
       });
     }
 
-    /* ── Links de idioma en menú móvil ── */
     document.querySelectorAll('.mobile-lang [data-lang]').forEach(function (link) {
       link.addEventListener('click', handleLangClick.bind(link));
     });
